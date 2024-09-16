@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width" initial-scale="1.0">
+        <title> All Products - Maggie's</title>
+        <link rel="stylesheet" href="style.css">
+        <link  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+     </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo0.jpg" width="125px">
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="product-description.html">About</a></li>
+                        <li><a href="cart2.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>                      
+                    </ul>
+                </nav>
+                <a href="cart.html"><img src="images/cart.jpeg" width="30px" height="30px" ></a>
+                <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+        </div>
+
+<div class="small">
+    <div class="desc">
+        <div class="row">
+            <div class="column">
+                <img src="images/mixed.avif" width="100%">
+            </div>
+            <div class="column">
+                <p>Discover the ultimate snack experience with our premium Nuts, a harmonious blend of nature’s finest offerings. Each handful delivers a delightful a variety of textures and flavors, making it an ideal choice for any occasion.
+                </p>
+                <p>Our Nuts are carefully roasted to enhance their natural flavors without excessive salt or additives. Each batch is hand-selected to ensure freshness and quality, making it a nutritious and tasty choice for snacking, baking, or adding a gourmet touch to salads and dishes.
+                </p>
+                <p>Whether you're looking for a satisfying mid-day snack or an elegant party mix, our Nuts, alone or mixed, offer both flavor and nourishment in every bite. Enjoy the rich, varied tastes and the health benefits of this well-rounded nut medley.
+                </p>
+                <p>We offer <a href="cashew.html">cashew</a>, <a href="cashew.html">almonds</a>, <a href="cashew.html">Brazillian nuts</a>, <a href="cashew.html">Pistachios</a></p>
+            </div>
+        </div>
+        <a href="product.html"><p>View More</p></a>
+    </div>
+
+</div>
+
+
+
+
+           <!----------------footer------------->
+           <div class="footer">
+            <div class="container">
+                <div class="row">
+                     <div class="footer-colu">
+                        <img src="images/logo0.jpg">
+                        <p>
+                            Our purpose is to make Healthy<br>Snack options with our nuts
+                        </p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>Coupon</li>
+                            <li>Blogpost</li>
+                            <li>Join Affliates</li>
+                        </ul>
+                    </div>
+                    <div class="footer-cola">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <li>twitter</li>
+                            <li>facebook</li>
+                            <li>Instagram</li>
+                        </ul>
+
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">Copyright 2024 - Maggie's</p>
+            </div>
+        </div>
+        <!-------------------js for toggle menu --------------->
+        <script>
+            var MenuItems = document.getElementById ("MenuItems");
+
+            MenuItems.style.maxHeight = "0px";
+
+            function menutoggle() {
+                if ( MenuItems.style.maxHeight == "0px")                
+                    {
+                        MenuItems.style.maxHeight = "200px";
+                    }
+                else
+                    {
+                        MenuItems.style.maxHeight = "0px";
+                    }
+            }
+         </script>
+               <!-------------------js for toggle form --------------->
+
+         <script>
+
+            var loginform = document.getElementById("loginform");
+            var regform = document.getElementById("regform");
+            var Indicator = document.getElementById("Indicator");
+
+            function register(){
+                regform.style.transform = "translateX(0px)";
+                loginform.style.transform = "translateX(0px)";
+                Indicator.style.transform = "translateX(100px)";
+            }
+
+            function login(){
+                regform.style.transform = "translateX(300px)";
+                loginform.style.transform = "translateX(300px)";
+                Indicator.style.transform = "translateX(0px)";
+            }
+         </script>
+
+     </body>
+</html>
