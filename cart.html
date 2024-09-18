@@ -17,7 +17,7 @@
                     <ul id="MenuItems">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="product.html">Products</a></li>
-                        <li><a href="product-description.html">About</a></li>
+                        <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
                         <li><a href="account.html">Account</a></li>                      
                     </ul>
@@ -27,91 +27,80 @@
             </div>
         </div>
 
-           <div class="cart-page">
-            <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Quality</th>
-                    <th>Subtotal</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/cashew.jpeg"  >
-                            <div>
-                                <p>Cashew</p>
-                                <small>Ksh2000</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>Ksh 2000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/almnd.jpeg"  width="30%">
-                            <div>
-                                <p>almonds</p>
-                                <small>Ksh2500</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>Ksh 2500</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/macaa.jpeg" width="50%">
-                            <div>
-                                <p>macadamia </p>
-                                <small>Ksh1000</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>Ksh 1000</td>
-                </tr>
-            </table>
-            <div class="total-price">
-                <table>
-                    <tr>
-                        <td>Subtotal</td>
-                        <td>ksh5500</td>
-                    </tr>
-                    <tr>
-                        <td>Tax</td>
-                        <td>ksh500</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>ksh6000</td>
-                    </tr>
-                </table>
+        <div id="products">
+            <div class="row">
+                <div class="colu">
+            <!-- Sample products -->
+                    <div class="product">
+                        <span class="product-name">Cashew</span>
+                        <span class="product-price">Ksh2000.00</span>
+                        <button class="add-to-cart" data-product="Cashew" data-price="2000.00">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <span class="product-name">Almonds</span>
+                        <span class="product-price">Ksh2500.00</span>
+                        <button class="add-to-cart" data-product="Almonds" data-price="2500.00">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="colu">
+                    <div class="product">
+                        <span class="product-name">Walnuts</span>
+                        <span class="product-price">Ksh3300.00</span>
+                        <button class="add-to-cart" data-product="Walnuts" data-price="3300.00">Add to Cart</button>
+                    </div>               
+                    <div class="product">
+                        <span class="product-name">Pistachios</span>
+                        <span class="product-price">Ksh3500.00</span>
+                        <button class="add-to-cart" data-product="Pistachios" data-price="3500.00">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="colu">    
+                    <div class="product">
+                        <span class="product-name">Brazilian</span>
+                        <span class="product-price">Ksh4500.00</span>
+                        <button class="add-to-cart" data-product="Brazilian" data-price="4500.00">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <span class="product-name">Macadamia</span>
+                        <span class="product-price">1500.00</span>
+                        <button class="add-to-cart" data-product="Macadamia" data-price="1500.00">Add to Cart</button>
+                    </div>
+                </div>
             </div>
-           </div>
+        </div>
 
-        <!----------------footer------------->
+        <h2>Your Cart</h2>
+        <table id="cart">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <div id="cart-summary">
+            <strong>Total Amount: Ksh<span id="total-amount">0.00</span></strong>
+        </div>
+
+             <!----------------footer------------->
         <div class="footer">
             <div class="container">
-                <div class="row">
+                 <div class="row">
                      <div class="footer-colu">
                         <img src="images/logo0.jpg">
-                        <p>
-                            Our purpose is to make Healthy<br>Snack options with our nuts
+                         <p>
+                           Our purpose is to make Healthy<br>Snack options with our nuts
                         </p>
                     </div>
                     <div class="footer-col">
                         <h3>Useful Links</h3>
                         <ul>
-                            <li>Coupon</li>
                             <li>Blogpost</li>
                             <li>Join Affliates</li>
                         </ul>
@@ -123,19 +112,19 @@
                             <li>facebook</li>
                             <li>Instagram</li>
                         </ul>
-
+    
                     </div>
                 </div>
                 <hr>
                 <p class="copyright">Copyright 2024 - Maggie's</p>
             </div>
         </div>
-        <!-------------------js for toggle menu --------------->
+         <!-------------------js for toggle menu --------------->
         <script>
             var MenuItems = document.getElementById ("MenuItems");
-
+    
             MenuItems.style.maxHeight = "0px";
-
+    
             function menutoggle() {
                 if ( MenuItems.style.maxHeight == "0px")                
                     {
@@ -147,6 +136,78 @@
                     }
             }
         </script>
-       
-     </body>
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const cartTableBody = document.querySelector('#cart tbody');
+                const totalAmountSpan = document.querySelector('#total-amount');
+                
+                // Load cart from localStorage
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                
+                function updateCart() {
+                    cartTableBody.innerHTML = '';
+                    let totalAmount = 0;
+
+                    cart.forEach((item, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.name}</td>
+                            <td>Ksh${item.price.toFixed(2)}</td>
+                            <td>
+                                <input type="number" value="${item.quantity}" min="1" data-index="${index}" class="quantity-input">
+                            </td>
+                            <td>Ksh${(item.price * item.quantity).toFixed(2)}</td>
+                            <td><button data-index="${index}" class="remove-from-cart">Remove</button></td>
+                        `;
+                        cartTableBody.appendChild(row);
+                        totalAmount += item.price * item.quantity;
+                    });
+
+                    totalAmountSpan.textContent = totalAmount.toFixed(2);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                }
+
+                function addToCart(productName, productPrice) {
+                    const existingItem = cart.find(item => item.name === productName);
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({ name: productName, price: parseFloat(productPrice), quantity: 1 });
+                    }
+                    updateCart();
+                }
+
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const productName = button.getAttribute('data-product');
+                        const productPrice = button.getAttribute('data-price');
+                        addToCart(productName, productPrice);
+                    });
+                });
+
+                cartTableBody.addEventListener('input', (event) => {
+                    if (event.target.classList.contains('quantity-input')) {
+                        const index = event.target.getAttribute('data-index');
+                        const newQuantity = parseInt(event.target.value, 10);
+                        if (newQuantity > 0) {
+                            cart[index].quantity = newQuantity;
+                            updateCart();
+                        }
+                    }
+                });
+
+                cartTableBody.addEventListener('click', (event) => {
+                    if (event.target.classList.contains('remove-from-cart')) {
+                        const index = event.target.getAttribute('data-index');
+                        cart.splice(index, 1);
+                        updateCart();
+                    }
+                });
+
+                updateCart();
+            });
+        </script>
+    </body>
 </html>
