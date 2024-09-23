@@ -5,8 +5,7 @@
         <meta name="viewpoint" content="width=device-width" initial-scale="1.0">
         <title> All Products - Maggie's</title>
         <link rel="stylesheet" href="style.css">
-        <link  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-     </head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sofadi+One&display=swap" rel="stylesheet">
     <body>
         <div class="container">
             <div class="navbar">
@@ -18,8 +17,8 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="product.html">Products</a></li>
                         <li><a href="product-description.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>          
-    			<li><a href="account.html">Account</a></li>                      
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>                      
                     </ul>
                 </nav>
                 <a href="cart.html"><img src="images/cart.jpeg" width="30px" height="30px" ></a>
@@ -40,14 +39,14 @@
                                     <span onclick="register()">Register</span>
                                     <hr id="Indicator">
                                 </div>
-
                                 <form id="loginform">
-                                    <input type="text" placeholder="Username">
-                                    <input type="password" placeholder="Password">
-                                    <button type="submit" class="btn">Login</button>
-                                    <a href="">Forgot Password</a>
+                                    <label for="username">Username:</label>
+                                    <input type="text" id="username" required>
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" required>
+                                    <button type="submit">Login</button>
+                                    <p id="error-message" style="color:#e7318c;"></p>
                                 </form>
-
                                 <form id="regform">
                                     <input type="text" placeholder="Username">
                                     <input type="email" placeholder="Email">
@@ -115,6 +114,41 @@
 
          <script>
 
+   
+            // Dummy database for users
+            const users = [
+                { username: 'user1', password: 'pass1' },
+                { username: 'user2', password: 'pass2' },
+            ];
+
+            // Handle login form submission
+            document.getElementById('loginform')?.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const user = users.find(user => user.username === username && user.password === password);
+
+                if (user) {
+                    // If login is successful, store user info in localStorage
+                    localStorage.setItem('loggedInUser', JSON.stringify(user));
+                    // Redirect to homepage
+                    window.location.href = 'index.html';
+                } else {
+                    // Show error message
+                    document.getElementById('error-message').innerText = 'Invalid username or password';
+                }
+            });
+
+            // Check for logged-in user and show a welcome message
+            window.onload = function () {
+                const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+                if (loggedInUser) {
+                    document.querySelector('header h1').innerText = `Welcome, ${loggedInUser.username}!`;
+                }
+            };
+         </script>
+         <script>
             var loginform = document.getElementById("loginform");
             var regform = document.getElementById("regform");
             var Indicator = document.getElementById("Indicator");
