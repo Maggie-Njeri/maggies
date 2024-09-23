@@ -2,66 +2,75 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewpoint" content="width=device-width" initial-scale="1.0">
-        <title> All Products - Maggie's</title>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <title>Maggie's</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sofadi+One&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <img src="images/logo0.jpg" width="125px">
-                </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="product-description.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="account.html">Account</a></li>                      
-                    </ul>
-                </nav>
-                <a href="cart.html"><img src="images/cart.jpeg" width="30px" height="30px" ></a>
-                <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
-            </div>
-        </div>
-        <!-------------------account-page------------>
-        <div class="account-page">
+        <div class="header">
             <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <img src="images/logo0.jpg" width="400px" height="225px">
+                    </div>
+                    <nav>
+                        <ul id="MenuItems">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="product.html">Products</a></li>
+                            <li><a href="product-description.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="account.html">Account</a></li>
+                        </ul>
+                    </nav>
+                    <a href="cart.html"><img src="images/cart.jpeg" width="30px" height="30px"></a>
+                    <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+                </div>
                 <div class="row">
                     <div class="column">
-                        <img src="images/mixed.avif" width="100%">
+                        <h1>Welcome, <span id="usernameDisplay">A Healthy You is a Wealthy You</span></h1>
+                        <p>
+                            Discover the ultimate snack experience with our premium Mixed Nuts, <br>a harmonious 
+                            blend of nature’s finest offerings. Each handful delivers a<br> delightful combination
+                            of textures and flavors, making it an ideal choice for any occasion
+                        </p>
+                        <a href="" class="btn">Explore Now &#8594;</a>
                     </div>
                     <div class="column">
-                        <div class="form-name">
-                            <div class="form-btn">
-                                <span onclick="login()">Login</span>
-                                <span onclick="register()">Register</span>
-                                <hr id="Indicator">
-                            </div>
-                            <form id="loginform">
-                                <label for="username">Username:</label>
-                                <input type="text" id="username" required>
-                                <label for="password">Password:</label>
-                                <input type="password" id="password" required>
-                                <button type="submit">Login</button>
-                                <p id="error-message" style="color:#e7318c;"></p>
-                            </form>
-                            <form id="regform">
-                                <input type="text" placeholder="Username">
-                                <input type="email" placeholder="Email">
-                                <input type="password" placeholder="Password">
-                                <button type="submit" class="btn">Register</button>
-                            </form>
-                        </div>    
+                        <img src="images/mixed.avif">
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-----------------------featured-types-------------------->
+        <div class="types">
+            <div class="small">
+                <h2>Featured Nuts</h2>
+                <div class="row">
+                    <div class="colu">
+                        <a href="cashew.html"><img src="images/cashw.jpg"></a>
+                    </div>
+                    <div class="colu">
+                       <a href="almond.html"><img src="images/almonds.jpg"></a>
+                    </div>
+                    <div class="colu">
+                       <a href="pista.html"><img src="images/pistachio.jpeg"></a>
+                    </div>
+                    <div class="colu">
+                        <a href="braz.html"><img src="images/brazillian.jpeg"></a>
+                     </div>
+                    <div class="colu">
+                        <a href="maca.html"><img src="images/macaa.jpeg"></a>
+                    </div>
+                    <div class="colu">
+                        <a href="walnut.html"><img src="images/walnut.jpeg"></a>
+                     </div>
+                </div>
+            </div>
+        </div>
+       
         <!----------------footer------------->
-
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -75,17 +84,16 @@
                         <h3>Useful Links</h3>
                         <ul>
                             <li>Blogpost</li>
-                            <li>Join Affliates</li>
+                            <li>Join Affiliates</li>
                         </ul>
                     </div>
                     <div class="footer-cola">
                         <h3>Follow Us</h3>
                         <ul>
-                            <li>twitter</li>
-                            <li>facebook</li>
+                            <li>Twitter</li>
+                            <li>Facebook</li>
                             <li>Instagram</li>
                         </ul>
-
                     </div>
                 </div>
                 <hr>
@@ -94,7 +102,6 @@
         </div>
 
         <!-------------------js for toggle menu --------------->
-
         <script>
             var MenuItems = document.getElementById("MenuItems");
 
@@ -109,65 +116,24 @@
             }
         </script>
 
-        <!-------------------js for toggle form --------------->
-
+        <!-------------------js to display logged-in username --------------->
         <script>
-            // Dummy database for users
-            const users = [
-                { username: 'user1', password: 'pass1' },
-                { username: 'user2', password: 'pass2' },
-            ];
-
-            // Function to save user to localStorage
-            function saveUserToLocalStorage(user) {
-                localStorage.setItem('loggedInUser', JSON.stringify(user));
-            }
-
-            // Handle login form submission
-            document.getElementById('loginform')?.addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                const user = users.find(user => user.username === username && user.password === password);
-
-                if (user) {
-                    // Save user to localStorage
-                    saveUserToLocalStorage(user);
-                    // Redirect to homepage
-                    window.location.href = 'index.html';
-                } else {
-                    // Show error message
-                    document.getElementById('error-message').innerText = 'Invalid username or password';
-                }
-            });
-
-            // Check for logged-in user and show a welcome message
-            window.onload = function () {
+            // Function to display username from localStorage
+            function displayUsername() {
                 const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-                if (loggedInUser) {
-                    document.querySelector('header h1').innerText = Welcome, ${loggedInUser.username}!;
+                const usernameDisplay = document.getElementById('usernameDisplay');
+                
+                if (loggedInUser && loggedInUser.username) {
+                    usernameDisplay.innerText = Welcome, ${loggedInUser.username}!;
+                } else {
+                    usernameDisplay.innerText = "A Healthy You is a Wealthy You";
                 }
+            }
+
+            // Call the function to display the username when the page loads
+            window.onload = function () {
+                displayUsername();
             };
-        </script>
-
-        <script>
-            var loginform = document.getElementById("loginform");
-            var regform = document.getElementById("regform");
-            var Indicator = document.getElementById("Indicator");
-
-            function register() {
-                regform.style.transform = "translateX(0px)";
-                loginform.style.transform = "translateX(0px)";
-                Indicator.style.transform = "translateX(100px)";
-            }
-
-            function login() {
-                regform.style.transform = "translateX(300px)";
-                loginform.style.transform = "translateX(300px)";
-                Indicator.style.transform = "translateX(0px)";
-            }
         </script>
     </body>
 </html>
-
