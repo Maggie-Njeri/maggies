@@ -21,22 +21,38 @@
     </div>
 
     <script>
-        // Event listener for form submission
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();  // Prevent the form from submitting the traditional way
-
-            // Get the input values
+       // Dummy database for users
+        const users = [
+            { username: 'user1', password: 'pass1' },
+            { username: 'user2', password: 'pass2' },
+        ];
+        
+        // Handle login form submission
+        document.getElementById('loginForm')?.addEventListener('submit', function (event) {
+            event.preventDefault();
+        
             const username = document.getElementById('username').value;
-
-            // Store the user in localStorage
-            const user = {
-                username: username
-            };
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-
-            // Redirect to the home page (index.html)
-            window.location.href = 'index.html';
+            const password = document.getElementById('password').value;
+            const user = users.find(user => user.username === username && user.password === password);
+        
+            if (user) {
+                // If login is successful, store user info in localStorage
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                // Redirect to homepage
+                window.location.href = 'index.html';
+            } else {
+                // Show error message
+                document.getElementById('error-message').innerText = 'Invalid username or password';
+            }
         });
+        
+        // Check for logged-in user and show a welcome message
+        window.onload = function () {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (loggedInUser) {
+                document.querySelector('header h1').innerText = `Welcome, ${loggedInUser.username}!`;
+            }
+        };
     </script>
 </body>
 </html>
